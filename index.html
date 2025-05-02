@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Animasi Apel Pindah</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f2f2f2;
+    }
+    #gifPlayer {
+      width: 640px;
+      height: 480px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    .controls button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 8px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .controls button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Animasi Apel Pindah Keranjang 🍎</h1>
+  <img id="gifPlayer" src="gif1.gif" alt="Animasi Apel" />
+
+  <div class="controls">
+    <button onclick="prevStep()">⬅️ Kembali</button>
+    <button onclick="nextStep()">➡️ Lanjut</button>
+    <button onclick="restart()">🔁 Ulang</button>
+  </div>
+
+  <script>
+    const gifs = [
+      "gif1.gif",
+      "gif2.gif",
+      "gif3.gif",
+      "gif4.gif",
+      "gif5.gif",
+      "gif6.gif",
+      "gif7.gif",
+      "gif8.gif",
+      "gif9.gif",
+      "gif10.gif"
+    ];
+
+    let currentStep = 0;
+
+    function showGif() {
+      document.getElementById('gifPlayer').src = gifs[currentStep];
+    }
+
+    function nextStep() {
+      if (currentStep < gifs.length - 1) {
+        currentStep++;
+        showGif();
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        showGif();
+      }
+    }
+
+    function restart() {
+      currentStep = 0;
+      showGif();
+    }
+  </script>
+
+</body>
+</html>
